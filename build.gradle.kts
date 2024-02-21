@@ -4,4 +4,11 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android) apply false
     alias(libs.plugins.google.devtools.ksp) apply false
     alias(libs.plugins.jetbrains.kotlin.kapt) apply false
+    alias(libs.plugins.navigation.safe.args.kotlin) apply false
+}
+
+buildscript {
+    dependencies {
+        classpath(libs.navigation.safe.args.gradle.plugin)
+    }
 }
