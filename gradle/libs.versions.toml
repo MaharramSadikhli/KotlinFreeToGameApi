@@ -17,7 +17,8 @@ legacy = "1.0.0"
 room = "2.6.1"
 coroutines = "1.8.0"
 retrofit = "2.9.0"
-rxjava = "2.1.1"
+rxjava = "2.2.9"
+glide = "4.15.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -45,6 +46,7 @@ retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-
 retrofit-adapter-rxjava2 = { group = "com.squareup.retrofit2", name = "adapter-rxjava2", version.ref = "retrofit" }
 rxjava2-rxjava = { group = "io.reactivex.rxjava2", name = "rxjava", version.ref = "rxjava" }
 rxjava2-rxandroid = { group = "io.reactivex.rxjava2", name = "rxandroid", version.ref = "rxjava" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 
 
 [plugins]
