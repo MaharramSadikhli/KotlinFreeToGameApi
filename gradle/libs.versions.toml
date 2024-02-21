@@ -16,6 +16,7 @@ lifecycle = "2.7.0" # if not work change to -> 2.6.1
 legacy = "1.0.0"
 room = "2.6.1"
 coroutines = "1.8.0"
+retrofit = "2.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,6 +39,10 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-rxjava = { group = "androidx.room", name = "room-rxjava2", version.ref = "room" }
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+retrofit-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+retrofit-adapter-rxjava2 = { group = "com.squareup.retrofit2", name = "adapter-rxjava2", version.ref = "retrofit" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

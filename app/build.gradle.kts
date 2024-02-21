@@ -76,4 +76,9 @@ dependencies {
     // Coroutines
     implementation(libs.coroutines.core)
 
+    // Retrofit
+    implementation(libs.retrofit.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.retrofit.adapter.rxjava2)
+
 }
