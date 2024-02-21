@@ -54,13 +54,23 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Navigation
+    // Jetpack Navigation
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
 
-    // Lifecycle
+    // Jetpack Lifecycle
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.lifecycle.livedata.ktx)
+
+    // Jetpack Legacy
+    implementation(libs.legacy.support.v4)
+
+    // Jetpack Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.room.rxjava)
+    ksp(libs.room.compiler)
+    annotationProcessor(libs.room.compiler)
 
 }

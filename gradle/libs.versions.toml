@@ -9,10 +9,12 @@ appcompat = "1.6.1"
 material = "1.11.0"
 activity = "1.8.2"
 constraintlayout = "2.1.4"
-ksp = "1.8.10-1.0.9"
+ksp = "1.9.22-1.0.17"
 kapt = "1.8.20"
 navigation = "2.7.7"
 lifecycle = "2.7.0" # if not work change to -> 2.6.1
+legacy = "1.0.0"
+room = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +31,11 @@ navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx",
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
+legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacy" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-rxjava = { group = "androidx.room", name = "room-rxjava2", version.ref = "room" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
