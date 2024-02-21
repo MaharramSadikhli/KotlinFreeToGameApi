@@ -3,4 +3,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="error">Error</string>
+    <string name="image">image</string>
+    <string name="game_title">Game Title</string>
+    <string name="game_description">Game Description</string>
+    <string name="game_url">Game URL</string>
+    <string name="game_genre">Game Genre</string>
+    <string name="game_platform">Game Platform</string>
+    <string name="game_publisher">Game Publisher</string>
+    <string name="game_developer">Game Developer</string>
+    <string name="game_release_date">Game Release Date</string>
 </resources>
