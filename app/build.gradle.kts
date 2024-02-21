@@ -73,4 +73,7 @@ dependencies {
     ksp(libs.room.compiler)
     annotationProcessor(libs.room.compiler)
 
+    // Coroutines
+    implementation(libs.coroutines.core)
+
 }
