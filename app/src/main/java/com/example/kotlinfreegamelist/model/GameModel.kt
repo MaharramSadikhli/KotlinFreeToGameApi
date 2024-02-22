@@ -2,6 +2,7 @@ package com.example.kotlinfreegamelist.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity
@@ -39,4 +40,8 @@ data class GameModel(
     @SerializedName("freetogame_profile_url") @ColumnInfo(name = "freetogame_profile_url")
     val freetogameProfileUrl: String,
     ) {
+
+    @PrimaryKey(autoGenerate = true)
+    var uuid: Int = 0
+
 }
