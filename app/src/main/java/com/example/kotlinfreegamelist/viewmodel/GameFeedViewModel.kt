@@ -21,9 +21,9 @@ class GameFeedViewModel(application: Application): MainViewModel(application) {
 
     private val dao = GameDbBuilder(getApplication()).gameDao()
 
-    private val games = MutableLiveData<List<GameModel>>()
-    private val loading = MutableLiveData<Boolean>()
-    private val error = MutableLiveData<Boolean>()
+    val games = MutableLiveData<List<GameModel>>()
+    val loading = MutableLiveData<Boolean>()
+    val error = MutableLiveData<Boolean>()
 
 
     // get data from api
