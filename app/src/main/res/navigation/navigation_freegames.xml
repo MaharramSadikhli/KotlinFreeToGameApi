@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_freegames"
+    app:startDestination="@id/gameFeedFragment">
+
+    <fragment
+        android:id="@+id/gameFeedFragment"
+        android:name="com.example.kotlinfreegamelist.view.GameFeedFragment"
+        android:label="fragment_game_feed"
+        tools:layout="@layout/fragment_game_feed" >
+        <action
+            android:id="@+id/action_gameFeedFragment_to_gameDetailFragment"
+            app:destination="@id/gameDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameDetailFragment"
+        android:name="com.example.kotlinfreegamelist.view.GameDetailFragment"
+        android:label="fragment_game_detail"
+        tools:layout="@layout/fragment_game_detail" >
+        <action
+            android:id="@+id/action_gameDetailFragment_to_gameFeedFragment"
+            app:destination="@id/gameFeedFragment" />
+        <argument
+            android:name="gameId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
