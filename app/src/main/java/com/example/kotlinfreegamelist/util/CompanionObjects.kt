@@ -1,10 +1,15 @@
 package com.example.kotlinfreegamelist.util
 
 import android.content.Context
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
+import androidx.core.content.edit
 import androidx.room.Room
 import com.example.kotlinfreegamelist.model.GameDB
 
-class CompanionObjects {
+private val LOCK = Any()
+
+class GameDbBuilder {
 
     // for game db
     companion object {
@@ -12,9 +17,8 @@ class CompanionObjects {
         @Volatile
         private var INSTANCE_DB: GameDB? = null
 
-        private val lock = Any()
 
-        operator fun invoke(context: Context) = INSTANCE_DB ?: synchronized(lock) {
+        operator fun invoke(context: Context) = INSTANCE_DB ?: synchronized(LOCK) {
             INSTANCE_DB ?: createDB(context).also {
                 INSTANCE_DB = it
             }
@@ -25,5 +29,39 @@ class CompanionObjects {
         ).build()
 
     }
+
+
+}
+
+class SharedPreferencesForTime {
+
+    companion object {
+
+        private var sharedPreferencesForTime: SharedPreferences? = null
+
+        @Volatile
+        private var INSTANCE_SPT: SharedPreferencesForTime? = null
+
+        operator fun invoke(context: Context): SharedPreferencesForTime = INSTANCE_SPT ?: synchronized(LOCK) {
+            INSTANCE_SPT ?: createSPT(context).also {
+                INSTANCE_SPT = it
+            }
+        }
+
+        private fun createSPT(context: Context): SharedPreferencesForTime {
+            sharedPreferencesForTime = PreferenceManager.getDefaultSharedPreferences(context)
+            return SharedPreferencesForTime()
+        }
+
+    }
+
+    fun saveTime(time: Long) {
+        sharedPreferencesForTime?.edit(commit = true) {
+            putLong(Constants.TIME, time)
+        }
+    }
+
+    fun getTime() = sharedPreferencesForTime?.getLong(Constants.TIME, 0)
+
 
 }
