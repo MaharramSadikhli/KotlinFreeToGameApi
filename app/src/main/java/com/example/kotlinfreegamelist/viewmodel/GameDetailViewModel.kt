@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 
 class GameDetailViewModel(application: Application): MainViewModel(application) {
 
-    private val gameDetail = MutableLiveData<GameModel>()
+    val gameDetail = MutableLiveData<GameModel>()
 
     fun getGameDetail(uuid: Int) {
 
