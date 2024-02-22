@@ -10,14 +10,12 @@ interface GameDao {
     @Query(value = "SELECT * FROM gamemodel")
     suspend fun getAllGames(): List<GameModel>
 
-    @Query(value = "SELECT * FROM gamemodel WHERE id = :id")
+    @Query(value = "SELECT * FROM gamemodel WHERE uuid = :id")
     suspend fun getGame(id: Int): GameModel
 
     @Query("DELETE FROM gamemodel")
     suspend fun deleteAllGames()
 
-    @Query("DELETE FROM gamemodel WHERE id = :id")
-    suspend fun deleteGame(id: Int): GameModel
 
     @Insert
     suspend fun insertGame(vararg gameModel: GameModel): List<Long>

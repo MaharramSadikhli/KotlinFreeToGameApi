@@ -33,14 +33,13 @@ class GameAdapter(private val gameList: ArrayList<GameModel>) :
         val uuid = gameList[position].uuid
         val image = holder.binding.imageViewRecyclerRow
 
-        var nameText = holder.binding.gameTitleRecyclerRow.text
-        var dateText = holder.binding.gameReleaseDateRecyclerRow.text
+
 
         val holderRoot = holder.binding.root
         val holderContext = holder.binding.root.context
 
-        nameText = name
-        dateText = date
+        holder.binding.gameTitleRecyclerRow.text = name
+        holder.binding.gameReleaseDateRecyclerRow.text = date
 
         holderRoot.setOnClickListener {
             val action = GameFeedFragmentDirections.actionGameFeedFragmentToGameDetailFragment(uuid)
