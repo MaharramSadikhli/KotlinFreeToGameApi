@@ -19,7 +19,7 @@ class ServiceAPI {
 
     private val service = retrofit.create(GameAPI::class.java)
 
-    private fun getData(): Single<List<GameModel>> {
+    fun getData(): Single<List<GameModel>> {
         return service.getGames()
     }
 
