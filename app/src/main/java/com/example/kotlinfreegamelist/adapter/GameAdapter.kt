@@ -2,17 +2,18 @@ package com.example.kotlinfreegamelist.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinfreegamelist.R
 import com.example.kotlinfreegamelist.databinding.RecyclerRowBinding
 import com.example.kotlinfreegamelist.model.GameModel
-import com.example.kotlinfreegamelist.util.loadImage
-import com.example.kotlinfreegamelist.util.placeHolderProgressBar
 import com.example.kotlinfreegamelist.view.GameFeedFragmentDirections
 
 class GameAdapter(private val gameList: ArrayList<GameModel>) :
-    RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
+    RecyclerView.Adapter<GameAdapter.GameViewHolder>(), GameClick {
 
     class GameViewHolder(val binding: RecyclerRowBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -20,33 +21,16 @@ class GameAdapter(private val gameList: ArrayList<GameModel>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = RecyclerRowBinding.inflate(layoutInflater, parent, false)
+        val binding = DataBindingUtil.inflate<RecyclerRowBinding>(layoutInflater, R.layout.recycler_row, parent, false)
         return GameViewHolder(binding)
     }
 
 
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
 
-        val url = gameList[position].thumbnail
-        val name = gameList[position].title
-        val date = gameList[position].releaseDate
-        val uuid = gameList[position].uuid
-        val image = holder.binding.imageViewRecyclerRow
+        holder.binding.game = gameList[position]
+        holder.binding.clickListener = this
 
-
-
-        val holderRoot = holder.binding.root
-        val holderContext = holder.binding.root.context
-
-        holder.binding.gameTitleRecyclerRow.text = name
-        holder.binding.gameReleaseDateRecyclerRow.text = date
-
-        holderRoot.setOnClickListener {
-            val action = GameFeedFragmentDirections.actionGameFeedFragmentToGameDetailFragment(uuid)
-            Navigation.findNavController(it).navigate(action)
-        }
-
-        image.loadImage(url, placeHolderProgressBar(holderContext))
     }
 
     override fun getItemCount(): Int {
@@ -58,6 +42,12 @@ class GameAdapter(private val gameList: ArrayList<GameModel>) :
         gameList.clear()
         gameList.addAll(newGameList)
         notifyDataSetChanged()
+    }
+
+    override fun onClickGame(v: View, uuid: Int) {
+        val action = GameFeedFragmentDirections.actionGameFeedFragmentToGameDetailFragment(uuid)
+        Navigation.findNavController(v).navigate(action)
+
     }
 
 }
